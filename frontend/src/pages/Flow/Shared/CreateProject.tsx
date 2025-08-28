@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useCallback, useMemo } from "react";
+import React, { Dispatch, SetStateAction, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "@/components/Button/Button";
 import EmptyContent from "@/components/EmptyContent/EmptyContent";
