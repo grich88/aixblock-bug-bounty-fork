@@ -165,7 +165,12 @@ export const setupApp = async (app: FastifyInstance): Promise<FastifyInstance> =
 
     await app.register(fastifySocketIO, {
         cors: {
-            origin: '*',
+            origin: [
+                'https://app.aixblock.io',
+                'https://workflow.aixblock.io',
+                'https://workflow-live.aixblock.io'
+            ],
+            credentials: true
         },
         ...spreadIfDefined('adapter', await getAdapter()),
         transports: ['websocket'],

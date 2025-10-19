@@ -74,10 +74,18 @@ async function setupBaseApp(): Promise<FastifyInstance> {
 
     await app.register(formBody, { parser: (str) => qs.parse(str) })
     app.setErrorHandler(errorHandler)
+    // SECURITY FIX: Replace wildcard CORS with specific allowed origins
+    // This prevents unauthorized cross-origin access to workflow execution APIs
     await app.register(cors, {
-        origin: '*',
-        exposedHeaders: ['*'],
-        methods: ['*'],
+        origin: [
+            'https://app.aixblock.io',
+            'https://workflow.aixblock.io',
+            'https://workflow-live.aixblock.io'
+        ],
+        credentials: true,
+        exposedHeaders: ['Content-Type', 'Authorization'],
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        allowedHeaders: ['Origin', 'Content-Type', 'Accept', 'Authorization', 'X-Requested-With']
     })
     // SurveyMonkey
     app.addContentTypeParser(
