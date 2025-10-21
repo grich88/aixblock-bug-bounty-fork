@@ -1,0 +1,282 @@
+[
+  {
+    "vulnerability": {
+      "id": 313,
+      "title": "CORS Misconfiguration",
+      "severity": "HIGH",
+      "status": "submitted"
+    },
+    "intelligence": {
+      "dark_web_status": "LOW",
+      "exploit_difficulty": "HIGH",
+      "browser_protection": "Modern browsers block wildcard + credentials",
+      "real_world_exploits": "Rarely successful due to browser security",
+      "improvement_suggestions": [
+        "Test with actual browsers to verify blocking",
+        "Look for subdomain takeover scenarios",
+        "Test authenticated endpoints specifically",
+        "Focus on endpoints that return sensitive data"
+      ]
+    },
+    "recommendations": [
+      "Test with Chrome, Firefox, Safari to verify browser blocking",
+      "Look for subdomain takeover opportunities",
+      "Test authenticated endpoints that return sensitive data",
+      "Check for CORS bypass techniques (null origin, etc.)",
+      "Focus on endpoints that handle user data or workflows"
+    ],
+    "exploit_results": null
+  },
+  {
+    "vulnerability": {
+      "id": 314,
+      "title": "CORS Fix (PR)",
+      "severity": "N/A",
+      "status": "submitted"
+    },
+    "intelligence": {
+      "dark_web_status": "LOW",
+      "exploit_difficulty": "HIGH",
+      "browser_protection": "Modern browsers block wildcard + credentials",
+      "real_world_exploits": "Rarely successful due to browser security",
+      "improvement_suggestions": [
+        "Test with actual browsers to verify blocking",
+        "Look for subdomain takeover scenarios",
+        "Test authenticated endpoints specifically",
+        "Focus on endpoints that return sensitive data"
+      ]
+    },
+    "recommendations": [
+      "Test with Chrome, Firefox, Safari to verify browser blocking",
+      "Look for subdomain takeover opportunities",
+      "Test authenticated endpoints that return sensitive data",
+      "Check for CORS bypass techniques (null origin, etc.)",
+      "Focus on endpoints that handle user data or workflows"
+    ],
+    "exploit_results": null
+  },
+  {
+    "vulnerability": {
+      "id": 315,
+      "title": "Critical Information Disclosure",
+      "severity": "CRITICAL",
+      "status": "submitted"
+    },
+    "intelligence": {
+      "dark_web_status": "MEDIUM",
+      "exploit_difficulty": "MEDIUM",
+      "browser_protection": "None",
+      "real_world_exploits": "Often used for reconnaissance",
+      "improvement_suggestions": [
+        "Link to specific CVEs for disclosed versions",
+        "Demonstrate clear attack path to higher impact",
+        "Show how disclosed data enables other attacks",
+        "Focus on truly sensitive data, not public config"
+      ]
+    },
+    "recommendations": [
+      "Research specific CVEs for nginx 1.18.0 (Ubuntu)",
+      "Test Auth0 client ID for actual vulnerabilities",
+      "Look for SAML endpoint exploitation",
+      "Test webhook endpoints for SSRF",
+      "Demonstrate clear attack chain to higher impact"
+    ],
+    "exploit_results": null
+  },
+  {
+    "vulnerability": {
+      "id": 316,
+      "title": "CORS + Information Disclosure",
+      "severity": "HIGH",
+      "status": "submitted"
+    },
+    "intelligence": {
+      "dark_web_status": "LOW",
+      "exploit_difficulty": "HIGH",
+      "browser_protection": "Modern browsers block wildcard + credentials",
+      "real_world_exploits": "Rarely successful due to browser security",
+      "improvement_suggestions": [
+        "Test with actual browsers to verify blocking",
+        "Look for subdomain takeover scenarios",
+        "Test authenticated endpoints specifically",
+        "Focus on endpoints that return sensitive data"
+      ]
+    },
+    "recommendations": [
+      "Test with Chrome, Firefox, Safari to verify browser blocking",
+      "Look for subdomain takeover opportunities",
+      "Test authenticated endpoints that return sensitive data",
+      "Check for CORS bypass techniques (null origin, etc.)",
+      "Focus on endpoints that handle user data or workflows"
+    ],
+    "exploit_results": null
+  },
+  {
+    "vulnerability": {
+      "id": 317,
+      "title": "CORS Main Domain",
+      "severity": "HIGH",
+      "status": "submitted"
+    },
+    "intelligence": {
+      "dark_web_status": "LOW",
+      "exploit_difficulty": "HIGH",
+      "browser_protection": "Modern browsers block wildcard + credentials",
+      "real_world_exploits": "Rarely successful due to browser security",
+      "improvement_suggestions": [
+        "Test with actual browsers to verify blocking",
+        "Look for subdomain takeover scenarios",
+        "Test authenticated endpoints specifically",
+        "Focus on endpoints that return sensitive data"
+      ]
+    },
+    "recommendations": [
+      "Test with Chrome, Firefox, Safari to verify browser blocking",
+      "Look for subdomain takeover opportunities",
+      "Test authenticated endpoints that return sensitive data",
+      "Check for CORS bypass techniques (null origin, etc.)",
+      "Focus on endpoints that handle user data or workflows"
+    ],
+    "exploit_results": null
+  },
+  {
+    "vulnerability": {
+      "id": 318,
+      "title": "Server Information Disclosure",
+      "severity": "MEDIUM",
+      "status": "submitted"
+    },
+    "intelligence": {
+      "dark_web_status": "MEDIUM",
+      "exploit_difficulty": "MEDIUM",
+      "browser_protection": "None",
+      "real_world_exploits": "Often used for reconnaissance",
+      "improvement_suggestions": [
+        "Link to specific CVEs for disclosed versions",
+        "Demonstrate clear attack path to higher impact",
+        "Show how disclosed data enables other attacks",
+        "Focus on truly sensitive data, not public config"
+      ]
+    },
+    "recommendations": [
+      "Research specific CVEs for nginx 1.18.0 (Ubuntu)",
+      "Test Auth0 client ID for actual vulnerabilities",
+      "Look for SAML endpoint exploitation",
+      "Test webhook endpoints for SSRF",
+      "Demonstrate clear attack chain to higher impact"
+    ],
+    "exploit_results": null
+  },
+  {
+    "vulnerability": {
+      "id": 319,
+      "title": "IP Header Injection",
+      "severity": "MEDIUM",
+      "status": "submitted"
+    },
+    "intelligence": {
+      "dark_web_status": "MEDIUM",
+      "exploit_difficulty": "MEDIUM",
+      "browser_protection": "Depends on implementation",
+      "real_world_exploits": "Cache poisoning, response splitting",
+      "improvement_suggestions": [
+        "Test for HTTP response splitting",
+        "Look for cache poisoning opportunities",
+        "Test for security control bypass",
+        "Demonstrate clear exploitation impact"
+      ]
+    },
+    "recommendations": [
+      "Test for HTTP response splitting attacks",
+      "Look for cache poisoning opportunities",
+      "Test for security control bypass",
+      "Check for authentication bypass via headers",
+      "Demonstrate clear exploitation impact"
+    ],
+    "exploit_results": null
+  },
+  {
+    "vulnerability": {
+      "id": 320,
+      "title": "HTTP Header Injection",
+      "severity": "LOW",
+      "status": "submitted"
+    },
+    "intelligence": {
+      "dark_web_status": "MEDIUM",
+      "exploit_difficulty": "MEDIUM",
+      "browser_protection": "Depends on implementation",
+      "real_world_exploits": "Cache poisoning, response splitting",
+      "improvement_suggestions": [
+        "Test for HTTP response splitting",
+        "Look for cache poisoning opportunities",
+        "Test for security control bypass",
+        "Demonstrate clear exploitation impact"
+      ]
+    },
+    "recommendations": [
+      "Test for HTTP response splitting attacks",
+      "Look for cache poisoning opportunities",
+      "Test for security control bypass",
+      "Check for authentication bypass via headers",
+      "Demonstrate clear exploitation impact"
+    ],
+    "exploit_results": null
+  },
+  {
+    "vulnerability": {
+      "id": 321,
+      "title": "Server Version Disclosure",
+      "severity": "LOW",
+      "status": "submitted"
+    },
+    "intelligence": {
+      "dark_web_status": "LOW",
+      "exploit_difficulty": "HIGH",
+      "browser_protection": "None",
+      "real_world_exploits": "Reconnaissance, targeted attacks",
+      "improvement_suggestions": [
+        "Research specific CVEs for disclosed versions",
+        "Link to known exploits for that version",
+        "Show privilege escalation path",
+        "Demonstrate system compromise"
+      ]
+    },
+    "recommendations": [
+      "Research nginx 1.18.0 CVEs and exploits",
+      "Test for privilege escalation vulnerabilities",
+      "Look for configuration file access",
+      "Test for directory traversal",
+      "Link to specific, exploitable vulnerabilities"
+    ],
+    "exploit_results": null
+  },
+  {
+    "vulnerability": {
+      "id": 322,
+      "title": "Missing Security Headers",
+      "severity": "LOW",
+      "status": "submitted"
+    },
+    "intelligence": {
+      "dark_web_status": "LOW",
+      "exploit_difficulty": "HIGH",
+      "browser_protection": "Depends on header",
+      "real_world_exploits": "XSS, clickjacking, MITM",
+      "improvement_suggestions": [
+        "Test for XSS without CSP",
+        "Test for clickjacking without X-Frame-Options",
+        "Test for MITM without HSTS",
+        "Demonstrate successful attack"
+      ]
+    },
+    "recommendations": [
+      "Test for XSS without Content Security Policy",
+      "Test for clickjacking without X-Frame-Options",
+      "Test for MITM without HSTS",
+      "Demonstrate successful attack for each missing header",
+      "Show clear security impact"
+    ],
+    "exploit_results": null
+  }
+]
