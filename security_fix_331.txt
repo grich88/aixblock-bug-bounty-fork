@@ -1,0 +1,1 @@
+SECURITY FIX: SQL Injection Authentication Bypass
