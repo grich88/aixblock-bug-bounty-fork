@@ -328,12 +328,29 @@ export default class SolanaRpc {
     }
   };
 
-  getPrivateKey = async (): Promise<string> => {
-    const privateKey = await this.provider.request({
-      method: "solanaPrivateKey",
-    });
+  // SECURITY FIX: Removed vulnerable getPrivateKey method
+  // Private keys should never be exposed client-side
+  // Use secure server-side signing instead
+  
+  // Secure method for transaction signing without exposing private key
+  signTransaction = async (transaction: Transaction): Promise<Transaction> => {
+    try {
+      const solanaWallet = new SolanaWallet(this.provider);
+      return await solanaWallet.signTransaction(transaction);
+    } catch (error) {
+      throw new Error(`Transaction signing failed: ${error}`);
+    }
+  };
 
-    return privateKey as string;
+  // Get public key without exposing private key
+  getPublicKey = async (): Promise<string> => {
+    try {
+      const solanaWallet = new SolanaWallet(this.provider);
+      const accounts = await solanaWallet.requestAccounts();
+      return accounts[0];
+    } catch (error) {
+      throw new Error(`Failed to get public key: ${error}`);
+    }
   };
 
   async getTokenBalance(
@@ -476,14 +493,12 @@ export default class SolanaRpc {
 
       // Convert human-readable amount to raw token units
       const rawAmount = amount * Math.pow(10, decimals);
-      const privateKey = await this.getPrivateKey();
-      const privateKeyArray = Uint8Array.from(Buffer.from(privateKey, "hex"));
-
-      if (privateKeyArray.length !== 64) {
-        console.log("privatekey", privateKey);
-        throw new Error("Invalid private key length");
-      }
-      const senderKeypair = Keypair.fromSecretKey(privateKeyArray);
+      // SECURITY FIX: Use secure wallet signing instead of exposing private key
+      const solanaWallet = new SolanaWallet(this.provider);
+      
+      // Get the sender's public key
+      const senderPublicKey = await this.getPublicKey();
+      const senderKeypair = Keypair.fromPublicKey(new PublicKey(senderPublicKey));
 
       const [senderTokenAccount, recipientTokenAccount] = await Promise.all([
         getOrCreateAssociatedTokenAccount(

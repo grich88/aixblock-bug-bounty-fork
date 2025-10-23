@@ -6,8 +6,10 @@ import { AppSystemProp, networkUtils } from 'workflow-server-shared'
 import { createRedisClient } from '../../database/redis-connection'
 import { QueueMode, system } from '../../helper/system/system'
 
+// SECURITY FIX: Enable rate limiting by default for security
 const API_RATE_LIMIT_AUTHN_ENABLED = system.getBoolean(
     AppSystemProp.API_RATE_LIMIT_AUTHN_ENABLED,
+    true // Default to enabled for security
 )
 
 export const rateLimitModule: FastifyPluginAsyncTypebox = FastifyPlugin(
