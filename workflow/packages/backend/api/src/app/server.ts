@@ -74,10 +74,17 @@ async function setupBaseApp(): Promise<FastifyInstance> {
 
     await app.register(formBody, { parser: (str) => qs.parse(str) })
     app.setErrorHandler(errorHandler)
+    // SECURITY FIX: Replace wildcard CORS with strict origin validation
     await app.register(cors, {
-        origin: '*',
-        exposedHeaders: ['*'],
-        methods: ['*'],
+        origin: [
+            'https://aixblock.com',
+            'https://www.aixblock.com',
+            'https://app.aixblock.com'
+        ],
+        credentials: true,
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+        allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+        optionsSuccessStatus: 200
     })
     // SurveyMonkey
     app.addContentTypeParser(
